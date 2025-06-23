@@ -2,13 +2,16 @@
 const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
+
 app.use(express.static(path.join(__dirname, 'public')));
-app.get('/surahs', (req, res) => res.sendFile(path.join(__dirname, 'public', 'surahs.html')));
-app.get('/hifz', (req, res) => res.sendFile(path.join(__dirname, 'public', 'hifz.html')));
-app.get('/prayer-times', (req, res) => res.sendFile(path.join(__dirname, 'public', 'prayer-times.html')));
-app.get('/qibla', (req, res) => res.sendFile(path.join(__dirname, 'public', 'qibla.html')));
-app.get('/tasbih', (req, res) => res.sendFile(path.join(__dirname, 'public', 'tasbih.html')));
-app.get('/tafseer', (req, res) => res.sendFile(path.join(__dirname, 'public', 'tafseer.html')));
-app.get('/donate', (req, res) => res.sendFile(path.join(__dirname, 'public', 'donate.html')));
-app.get('/logout', (req, res) => res.sendFile(path.join(__dirname, 'public', 'logout.html')));
-app.listen(port, () => console.log(Server running on port ));
+
+const pages = ['surahs', 'hifz', 'prayer-times', 'qibla', 'tasbih', 'tafseer', 'donate', 'logout'];
+pages.forEach(page => {
+  app.get(/, (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', \\.html\));
+  });
+});
+
+app.listen(port, () => {
+  console.log(\Server running on port \\);
+});
